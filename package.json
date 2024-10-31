@@ -1,0 +1,16 @@
+{
+  "name": "chat-realtime-websocket",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Wesley Souza <we95sz@gmai.com>",
+  "license": "ISC",
+  "description": "Aplicativo de chat em tempo real usando WebSocket e Express. / Real-time chat application using WebSocket and Express.",
+  "dependencies": {
+    "express": "^4.21.1",
+    "socket.io": "^4.8.1"
+  }
+}

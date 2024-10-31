@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121214;
+            color: #e1e1e6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #chat {
+            background-color: #202024;
+            border-radius: 8px;
+            padding: 20px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        ul li {
+            background-color: #323238;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        form {
+            display: flex;
+            gap: 10px;
+        }
+        input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #323238;
+            color: #e1e1e6;
+            font-size: 16px;
+        }
+        button {
+            background-color: #8257E5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #9466ff;
+        }
+        h1 {
+            text-align: center;
+            color: #04d361;
+            margin-bottom: 20px;
+        }
+        ul::-webkit-scrollbar {
+            width: 8px;
+        }
+        ul::-webkit-scrollbar-track {
+            background: #202024;
+        }
+        ul::-webkit-scrollbar-thumb {
+            background-color: #8257E5;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat">
+        <h1>WebSocket - Real-Time Chat</h1>
+        <ul id="messages"></ul>
+        <form id="form" action="">
+            <input id="message" autocomplete="off" placeholder="Type your message..." /> 
+            <button type="submit">To send</button>
+        </form>
+    </div>
+    <script>
+        const socket = new WebSocket('ws://localhost:3500');
+
+        const form = document.getElementById('form');
+        const messageInput = document.getElementById('message');
+        const messages = document.getElementById('messages');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (messageInput.value) {
+                socket.send(messageInput.value);
+                messageInput.value = '';
+            }
+        });
+
+        socket.addEventListener('message', function(event) {
+            const item = document.createElement('li');
+            item.textContent = event.data;
+            messages.appendChild(item);
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+    </script>
+</body>
+</html>
