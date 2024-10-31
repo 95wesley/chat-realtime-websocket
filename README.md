@@ -24,10 +24,12 @@ Antes de executar o aplicativo, você precisa ter o Node.js e o npm instalados e
 
 ## Estrutura do Projeto / Project Structure
 
+```bash
 /public
   └── index.html  # Interface do chat
 server.js         # Código do servidor
 package.json      # Configuração do projeto
+```
 
 ## 1. Clone este repositório / Clone this repository
 
