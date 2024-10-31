@@ -26,9 +26,9 @@ Antes de executar o aplicativo, você precisa ter o Node.js e o npm instalados e
 
 ```bash
 /public
-  └── index.html  # Interface do chat
-server.js         # Código do servidor
-package.json      # Configuração do projeto
+  └── index.html  # Chat interface 
+server.js         # Server code
+package.json      # Project configuration
 ```
 
 ## 1. Clone este repositório / Clone this repository
