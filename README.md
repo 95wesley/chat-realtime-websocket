@@ -1,3 +1,5 @@
+![WebSocket Chat Application](print.png)
+
 # WebSocket Chat Application
 
 Este é um aplicativo de chat em tempo real utilizando Node.js, Express e WebSocket. Ele permite que múltiplos usuários se conectem e troquem mensagens instantaneamente.
